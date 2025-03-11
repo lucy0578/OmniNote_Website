@@ -11,17 +11,20 @@ import 'element-ui/lib/theme-chalk/index.css';
 // import axios from 'axios'
 // import VueAxios from "vue-axios"
 
+import store from './store';
+
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
-
-// 后端写好后可以删掉
-new Vue({
-  el: '#app',
-  router,
-  render: h => h(App)
-});
 
 // 后端创建后
 // axios.defaults.baseURL = "/api"
 // axios.defaults.withCredentials = true
 // Vue.use(VueAxios, axios)
+
+new Vue({
+  el: '#app',
+  router,
+  store,
+  components: { App },
+  template: '<App/>',
+});
