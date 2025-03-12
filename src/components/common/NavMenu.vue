@@ -24,7 +24,7 @@
       class="el-menu-demo"
       mode="horizontal"
       router
-      @select="handleSelect"32
+      @select="handleSelect"
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b">
