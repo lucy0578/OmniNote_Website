@@ -17,23 +17,24 @@
           // this.axios.get("categories/"+currentCid+"/notes")
           //     .then(function (response) {
           //       if (response.status === 200) {
-          //         _this.$refs.notes.notes = reponse.data
+          //         _this.$refs.notes.notes = response.data
           //       }
           //     })
 
           // 后端创建后可以删掉
-          let mockResponse = {
-            status: 200,
-            data: [
-              { id: 1, name: "test 1" },
-              { id: 2, name: "test2" }
-            ]
-          };
+          setTimeout(() => {
+            const mockNotes = {
+              "1": [
+                { name: "Vue.js 入门", abs: "Vue.js 是一个渐进式 JavaScript 框架。" },
+                { name: "Vue 组件", abs: "组件是 Vue 的核心概念之一。" }
+              ],
+              "2": [
+                { name: "JavaScript 进阶", abs: "了解 JavaScript 闭包、原型链等概念。" }
+              ]
+            };
 
-          if (mockResponse.status === 200) {
-            _this.$refs.notes.notes = mockResponse.data;
-            console.log(mockResponse.data);
-          }
+            _this.$refs.notes.notes = mockNotes[currentCid] || []; // 如果分类 ID 不在 mock 数据中，返回空数组
+          }, 500); // 模拟网络延迟 500ms
         }
       }
     }

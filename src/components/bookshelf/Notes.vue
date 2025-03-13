@@ -13,10 +13,18 @@ export default {
     };
   },
   methods: {
-    restrict(text, length = 50) {
-      if (!text) return "No content";
-      return text.length > length ? text.substring(0, length) + "..." : text;
-    }
+    restrict(abs){
+      if(abs === "" || abs == null){
+        return ""
+      }
+
+      if(abs.length<48){
+        return abs
+      }
+      else {
+        return abs.substring(0,48) + '...'
+      }
+    },
   }
 };
 </script>

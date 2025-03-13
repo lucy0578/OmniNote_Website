@@ -1,9 +1,9 @@
 <script>
   export default {
-    name: 'Bookshelf',
+    name: 'CategoryBar',
     data() {
       return {
-        currentCid: 0,
+        currentCid: "1",
         categories: []
       }
     },
@@ -19,17 +19,12 @@
       // })
 
       // 后端创建后可以删掉
-      let mockResponse = {
-        status: 200,
-        data: [
-          { id: 1, name: "test 1" },
-          { id: 2, name: "test2" }
-        ]
-      };
-
-      if (mockResponse.status === 200) {
-        _this.categories = mockResponse.data;
-      }
+      setTimeout(() => {
+        _this.categories = [
+          { id: "1", name: "前端" },
+          { id: "2", name: "后端" }
+        ];
+      }, 500);
       //
 
     },
