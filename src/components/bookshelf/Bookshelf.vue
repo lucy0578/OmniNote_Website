@@ -1,9 +1,10 @@
 <script>
   import Notes from "./Notes";
   import CategoryBar from "./CategoryBar";
+  import NoteEditForm from "./NoteEditForm.vue";
     export default {
       name: 'Bookshelf',
-      components: {Notes, CategoryBar},
+      components: {Notes, CategoryBar, NoteEditForm: NoteEditForm},
       data() {
         return {
 
@@ -35,6 +36,11 @@
 
             _this.$refs.notes.notes = mockNotes[currentCid] || []; // 如果分类 ID 不在 mock 数据中，返回空数组
           }, 500); // 模拟网络延迟 500ms
+        },
+
+        handleEditInfo(noteInfo) {
+          this.$refs.noteEditForm.dialogFormVisible = true;
+          this.$refs.noteEditForm.form = noteInfo;
         }
       }
     }
@@ -43,7 +49,8 @@
 <template>
   <div style="margin-left: 10px">
     <category-bar @categorySelect="getNotes" ref="categoryBar"></category-bar>
-    <notes ref="notes"></notes>
+    <notes ref="notes" @editInfo="handleEditInfo"></notes>
+    <note-editForm ref="noteEditForm" @updateInfo="getNotes"></note-editForm>
   </div>
 </template>
 

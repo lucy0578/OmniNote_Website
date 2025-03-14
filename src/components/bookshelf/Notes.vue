@@ -25,6 +25,9 @@ export default {
         return abs.substring(0,48) + '...'
       }
     },
+    editInfo(note) {
+      this.$emit('editInfo', note);
+    }
   }
 };
 </script>
@@ -41,7 +44,7 @@ export default {
           <el-button style="float: right; padding: 5px 0; margin-right: 5px" type="text"><i class="el-icon-more"></i></el-button>
         </el-tooltip>
         <el-tooltip transition="0s" class="item" effect="dark" content="Edit note title and introduction" placement="top-start">
-          <el-button style="float: right; padding: 5px 0" type="text"><i class="el-icon-edit-outline"></i></el-button>
+          <el-button style="float: right; padding: 5px 0" type="text" @click="editInfo(item)"><i class="el-icon-edit-outline"></i></el-button>
         </el-tooltip>
       </div>
       <div class="text item">
